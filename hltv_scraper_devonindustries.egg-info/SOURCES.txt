@@ -1,0 +1,8 @@
+README.md
+setup.py
+hltv_scraper/__init__.py
+hltv_scraper/hltv_scraper.py
+hltv_scraper_devonindustries.egg-info/PKG-INFO
+hltv_scraper_devonindustries.egg-info/SOURCES.txt
+hltv_scraper_devonindustries.egg-info/dependency_links.txt
+hltv_scraper_devonindustries.egg-info/top_level.txt
