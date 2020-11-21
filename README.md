@@ -14,7 +14,7 @@ large data sets (particularly using `scrape_range()`), this does mean that it ca
 To import this file, use `import hltv_scraper`. The main functions that you want to use are:
 
 - `scrape(driver, category, date_range, map)`
-- `scrape_range(driver, category, date_range, map)`
+- `scrape_range(driver, category, date_range, map, date_scale=90)`
 
 The `driver` argument will accept any selenium webdriver instance, and needs to be running before calling these functions.
 Take a look at the docstring for the two functions to get a better idea of what arguments to pass in using `help(scrape)` / `help(scrape_range)`.
