@@ -5,7 +5,7 @@ with open('README.md', 'r') as fh:
     
 setuptools.setup(
     name = 'hltv_scraper-devonindustries',
-    version = '0.0.1',
+    version = '0.0.2',
     author = 'Joshua Baker',
     author_email = 'jd.baker001@googlemail.com',
     description = 'A web scrper for hltv.org',

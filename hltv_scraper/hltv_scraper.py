@@ -10,7 +10,6 @@ import re
 import time
 
 # The below function is responsible for assembling the call link based on our parameters
-
 def build_link(category, date_range, _map):
 
     '''
@@ -474,14 +473,12 @@ def scrape(driver, category, date_range, _map):
         return -1
 
 # A function to scrape the running statistics for a given category from the last 90 days of performance
-def scrape_range(driver, category, date_range, _map):
+def scrape_range(driver, category, date_range, _map, date_scale=90):
     
     # Set up a blank dataframe to host our data
-    
     df = pd.DataFrame()
     
     # First see what date range we're dealing with, and get the number of loops we need to do
-    
     loops = None
     
     if date_range == '1m':
@@ -496,14 +493,18 @@ def scrape_range(driver, category, date_range, _map):
         return -1
     
     # Now iterate for each date in our date range
-    
     for loop_date in [date.today() - (x * timedelta(days = 1)) for x in range(1, loops)]:
         
-        # Get the new dataframe
-        new_df = scrape(driver, category, [str(loop_date - timedelta(days = 90)), str(loop_date)], _map)
+        # Get the new dataframe depending on the time range
+        new_df = scrape(
+            driver, 
+            category, 
+            [str(loop_date - timedelta(days = date_scale)), str(loop_date)], 
+            _map
+        )
         
-        # Wait a random amount of time so that we don't get blocked
-        time.sleep(7 + 2 * random.randn())
+        # Set a random time delay to prevent bot detection
+        time.sleep(abs(3 + 0.5 * random.randn()))
         
         # Format the new dataframe correctly
         new_df['Date'] = new_df.apply(lambda x : str(loop_date), axis = 1)
